@@ -38,7 +38,7 @@ public class FacturaDAO implements IFactura {
                 FacturaVO f = new FacturaVO();
                 // Recogemos los datos de la persona, guardamos en un objeto
                 f.setPk(res.getInt("pk"));
-                f.setFechaEmision(res.getDate("fecha_nac").toLocalDate());
+                f.setFechaEmision(res.getDate("fecha_emision").toLocalDate());
                 f.setDescripcion(res.getString("descripcion"));
                 f.setTotalImporte(res.getDouble("totalImporte"));
                 
@@ -71,7 +71,7 @@ public class FacturaDAO implements IFactura {
             if (res.next()) {
                 // Recogemos los datos de la persona, guardamos en un objeto
                 f.setPk(res.getInt("pk"));
-                f.setFechaEmision(res.getDate("fecha_nac").toLocalDate());
+                f.setFechaEmision(res.getDate("fecha_emision").toLocalDate());
                 f.setDescripcion(res.getString("descripcion"));
                 f.setTotalImporte(res.getDouble("totalImporte"));
                 return f;
@@ -85,7 +85,7 @@ public class FacturaDAO implements IFactura {
     public int insertFactura(FacturaVO f) throws SQLException {
 
         int numFilas = 0;
-        String sql = "insert into factura values (?,?,?)";
+        String sql = "insert into factura values (?,?,?,?)";
 
         if (findByPk(f.getPk()) != null) {
             // Existe un registro con esa pk
@@ -161,7 +161,7 @@ public class FacturaDAO implements IFactura {
     public int updateFactura(int pk, FacturaVO nuevosDatos) throws SQLException {
 
         int numFilas = 0;
-        String sql = "update factura set descripcion = ?, fechaEmision = ?, totalImporte = ? where pk=?";
+        String sql = "update factura set descripcion = ?, fecha_emision = ?, totalImporte = ? where pk=?";
 
         if (findByPk(pk) == null) {
             // La persona a actualizar no existe

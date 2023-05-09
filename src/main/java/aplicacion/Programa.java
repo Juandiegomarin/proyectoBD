@@ -89,7 +89,7 @@ public class Programa {
         
         System.out.println("--------------------------------------------------");
         listaFacturas.forEach(System.out::println);
-        
+         System.out.println("--------------------------------------------------");
          
          
         
@@ -115,7 +115,7 @@ public class Programa {
             System.out.println("-----------------------------------------");
             System.out.println("Modificación de la persona con pk 5");
             System.out.println("Nº Personas modificadas " + 
-                    daoFactura.updateFactura(5, new FacturaVO(5, LocalDate.MIN, "", 0)));
+                    daoFactura.updateFactura(5, new FacturaVO(5, LocalDate.now(), "", 0)));
             System.out.println("-----------------------------------------");
             nuevaLista = daoFactura.getAll();
             System.out.println("-------- Lista con datos recogidos desde la B.D despues de modificar una persona -------------");
