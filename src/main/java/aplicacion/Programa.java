@@ -9,6 +9,8 @@ package aplicacion;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -25,8 +27,10 @@ import modelo.FacturaVO;
  */
 public class Programa {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         
+//        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/p81JuanDiegoMarinMorales?zeroDateTimeBehavior=CONVERT_TO_NULL");
+        Connection con= Conexion.getInstance();
         
         FacturaDAO daoFactura = new FacturaDAO();
         List<FacturaVO> listaFacturas = new ArrayList<>();
@@ -86,7 +90,9 @@ public class Programa {
         System.out.println("--------------------------------------------------");
         listaFacturas.forEach(System.out::println);
         
-        Connection con = Conexion.getInstance();
+         
+         
+        
         try {
             
             System.out.println("Nº facturas insertadas " + daoFactura.insertFactura(listaFacturas));
