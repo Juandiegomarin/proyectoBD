@@ -7,10 +7,7 @@ package modelo;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- *
- * @author J. Carlos F. Vico <jcarlosvico@maralboran.es>
- */
+
 
 public interface IFactura {
     
@@ -26,8 +23,8 @@ public interface IFactura {
     // Método para insertar varios registros
     int insertFactura (List<FacturaVO> lista) throws SQLException;
     
-    // Método para borrar una persona
-    int deleteFactura (FacturaVO p) throws SQLException;
+    // Método para borrar una factura
+    int deleteFactura (FacturaVO f) throws SQLException;
     
     // Método para borrar toda la tabla
     int deleteFactura() throws SQLException;

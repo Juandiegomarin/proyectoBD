@@ -12,10 +12,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author J. Carlos F. Vico <jcarlosvico@maralboran.es>
- */
+
 public class FacturaDAO implements IFactura {
 
     private Connection con = null;
@@ -36,7 +33,7 @@ public class FacturaDAO implements IFactura {
             // Ahora construimos la lista, recorriendo el ResultSet y mapeando los datos
             while (res.next()) {
                 FacturaVO f = new FacturaVO();
-                // Recogemos los datos de la persona, guardamos en un objeto
+                // Recogemos los datos de la factura, guardamos en un objeto
                 f.setPk(res.getInt("pk"));
                 f.setFechaEmision(res.getDate("fecha_emision").toLocalDate());
                 f.setDescripcion(res.getString("descripcion"));
@@ -69,7 +66,7 @@ public class FacturaDAO implements IFactura {
             // Nos posicionamos en el primer registro del Resultset. Sólo debe haber una fila
             // si existe esa pk
             if (res.next()) {
-                // Recogemos los datos de la persona, guardamos en un objeto
+                // Recogemos los datos de la factura, guardamos en un objeto
                 f.setPk(res.getInt("pk"));
                 f.setFechaEmision(res.getDate("fecha_emision").toLocalDate());
                 f.setDescripcion(res.getString("descripcion"));

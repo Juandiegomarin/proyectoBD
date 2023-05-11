@@ -6,10 +6,7 @@ package modelo;
 
 import java.time.LocalDate;
 
-/**
- *
- * @author J. Carlos F. Vico <jcarlosvico@maralboran.es>
- */
+
 
 public class FacturaVO {
     
